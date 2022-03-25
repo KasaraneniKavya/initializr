@@ -162,10 +162,10 @@ public class BillOfMaterials {
 		if (this.version == null && this.mappings.isEmpty()) {
 			throw new InvalidInitializrMetadataException("No version available for " + this);
 		}
-		updateCompatibilityRange(VersionParser.DEFAULT);
+		updateRange(VersionParser.DEFAULT);
 	}
 
-	public void updateCompatibilityRange(VersionParser versionParser) {
+	public void updateRange(VersionParser versionParser) {
 		this.mappings.forEach((it) -> {
 			try {
 				Assert.notNull(it.compatibilityRange,

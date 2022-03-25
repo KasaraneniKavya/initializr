@@ -130,12 +130,12 @@ class BillOfMaterialsTests {
 		bom.getMappings().add(BillOfMaterials.Mapping.create("[1.3.x.BUILD-SNAPSHOT,1.4.0.RELEASE)", "1.1.1-SNAPSHOT"));
 		bom.validate();
 
-		bom.updateCompatibilityRange(new VersionParser(
+		bom.updateRange(new VersionParser(
 				Arrays.asList(Version.parse("1.3.8.RELEASE"), Version.parse("1.3.9.BUILD-SNAPSHOT"))));
 		assertThat(bom.resolve(Version.parse("1.3.8.RELEASE")).getVersion()).isEqualTo("1.1.0");
 		assertThat(bom.resolve(Version.parse("1.3.9.RELEASE")).getVersion()).isEqualTo("1.1.1-SNAPSHOT");
 
-		bom.updateCompatibilityRange(new VersionParser(
+		bom.updateRange(new VersionParser(
 				Arrays.asList(Version.parse("1.3.9.RELEASE"), Version.parse("1.3.10.BUILD-SNAPSHOT"))));
 		assertThat(bom.resolve(Version.parse("1.3.8.RELEASE")).getVersion()).isEqualTo("1.1.0");
 		assertThat(bom.resolve(Version.parse("1.3.9.RELEASE")).getVersion()).isEqualTo("1.1.0");

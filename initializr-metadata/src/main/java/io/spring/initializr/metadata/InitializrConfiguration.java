@@ -350,7 +350,7 @@ public class InitializrConfiguration {
 		}
 
 		public void updateCompatibilityRange(VersionParser versionParser) {
-			this.getBoms().values().forEach((it) -> it.updateCompatibilityRange(versionParser));
+			this.getBoms().values().forEach((it) -> it.updateRange(versionParser));
 			this.getKotlin().updateCompatibilityRange(versionParser);
 			this.getPlatform().updateCompatibilityRange(versionParser);
 		}
